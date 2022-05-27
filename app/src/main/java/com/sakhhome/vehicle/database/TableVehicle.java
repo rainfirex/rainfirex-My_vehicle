@@ -36,6 +36,15 @@ public abstract class TableVehicle {
     public final static String KEY_TANK_LITERS = "tank_liters";
     public final static String KEY_MASS = "mass";
 
+    public static String createTableString(){
+        return String.format("create table %s (id integer primary key autoincrement, %s TEXT, %s TEXT, %s TEXT, %s INTEGER," +
+                        " %s TEXT NULL, %s INTEGER DEFAULT 0, %s BLOB NULL," +
+                        " %s TEXT NULL, %s REAL NULL, %s TEXT NULL, %s REAL DEFAULT 0, %s INTEGER DEFAULT 0);",
+                TableVehicle.TABLE, TableVehicle.KEY_TITLE, TableVehicle.KEY_MARK, TableVehicle.KEY_MODEL, TableVehicle.KEY_YEAR,
+                TableVehicle.KEY_COLOR, TableVehicle.KEY_ODOMETR, TableVehicle.KEY_AVATAR,
+                TableVehicle.KEY_ENGINE, TableVehicle.KEY_POWER_ENGINE, TableVehicle.KEY_BODY, TableVehicle.KEY_TANK_LITERS, TableVehicle.KEY_MASS);
+    }
+
     /**
      * Получить весь транспорт из БД
      * @param context
@@ -46,23 +55,23 @@ public abstract class TableVehicle {
 
         VehicleDB vehicleDB = new VehicleDB(context);
         SQLiteDatabase db = vehicleDB.getWritableDatabase();
-        Cursor c = db.query(TableVehicle.TABLE, null, null, null, null,null, null);
+        Cursor c = db.query(TABLE, null, null, null, null,null, null);
 
         if (c.moveToFirst()){
 
-            int idIndex      = c.getColumnIndex(TableVehicle.KEY_ID);
-            int titleIndex   = c.getColumnIndex(TableVehicle.KEY_TITLE);
-            int markIndex    = c.getColumnIndex(TableVehicle.KEY_MARK);
-            int modelIndex   = c.getColumnIndex(TableVehicle.KEY_MODEL);
-            int yearIndex    = c.getColumnIndex(TableVehicle.KEY_YEAR);
-            int colorIndex   = c.getColumnIndex(TableVehicle.KEY_COLOR);
-            int odometrIndex = c.getColumnIndex(TableVehicle.KEY_ODOMETR);
-            int avatarIndex  = c.getColumnIndex(TableVehicle.KEY_AVATAR);
-            int engineIndex  = c.getColumnIndex(TableVehicle.KEY_ENGINE);
-            int enginePowerIndex  = c.getColumnIndex(TableVehicle.KEY_POWER_ENGINE);
-            int bodyIndex  = c.getColumnIndex(TableVehicle.KEY_BODY);
-            int tankIndex  = c.getColumnIndex(TableVehicle.KEY_TANK_LITERS);
-            int massIndex  = c.getColumnIndex(TableVehicle.KEY_MASS);
+            int idIndex      = c.getColumnIndex(KEY_ID);
+            int titleIndex   = c.getColumnIndex(KEY_TITLE);
+            int markIndex    = c.getColumnIndex(KEY_MARK);
+            int modelIndex   = c.getColumnIndex(KEY_MODEL);
+            int yearIndex    = c.getColumnIndex(KEY_YEAR);
+            int colorIndex   = c.getColumnIndex(KEY_COLOR);
+            int odometrIndex = c.getColumnIndex(KEY_ODOMETR);
+            int avatarIndex  = c.getColumnIndex(KEY_AVATAR);
+            int engineIndex  = c.getColumnIndex(KEY_ENGINE);
+            int enginePowerIndex  = c.getColumnIndex(KEY_POWER_ENGINE);
+            int bodyIndex  = c.getColumnIndex(KEY_BODY);
+            int tankIndex  = c.getColumnIndex(KEY_TANK_LITERS);
+            int massIndex  = c.getColumnIndex(KEY_MASS);
 
             do{
                 int id         = c.getInt(idIndex);

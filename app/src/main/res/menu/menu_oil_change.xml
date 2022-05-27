@@ -4,6 +4,11 @@
     <item
         android:id="@+id/add_oil_change"
         android:orderInCategory="1"
-        android:title="@string/app_add_vehicle"
+        android:title="@string/oil_add_change"
+        app:showAsAction="ifRoom"/>
+    <item
+        android:id="@+id/add_oil_list"
+        android:orderInCategory="1"
+        android:title="@string/oil_list_change"
         app:showAsAction="ifRoom"/>
 </menu>

@@ -8,9 +8,9 @@ import androidx.annotation.Nullable;
 
 public class VehicleDB extends SQLiteOpenHelper {
 
-    private static final int DATABASE_VERSION = 2;
+    private static final int DATABASE_VERSION = 1;
 
-    private final static String DATABASE = "vehicle_helper";
+    private final static String DATABASE = "vehicle_helper1";
 
     public VehicleDB(@Nullable Context context) {
         super(context, DATABASE, null, DATABASE_VERSION);
@@ -18,19 +18,22 @@ public class VehicleDB extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
-        String createQuery = String.format("create table %s (id integer primary key autoincrement, %s TEXT, %s TEXT, %s TEXT, %s INTEGER, %s TEXT NULL, %s INTEGER DEFAULT 0, %s BLOB NULL," +
-                        " %s TEXT NULL, %s REAL NULL, %s TEXT NULL, %s REAL DEFAULT 0, %s INTEGER DEFAULT 0);",
-                TableVehicle.TABLE, TableVehicle.KEY_TITLE, TableVehicle.KEY_MARK, TableVehicle.KEY_MODEL, TableVehicle.KEY_YEAR,
-                TableVehicle.KEY_COLOR, TableVehicle.KEY_ODOMETR, TableVehicle.KEY_AVATAR,
-                TableVehicle.KEY_ENGINE, TableVehicle.KEY_POWER_ENGINE, TableVehicle.KEY_BODY, TableVehicle.KEY_TANK_LITERS, TableVehicle.KEY_MASS);
+//        String createQuery = String.format("create table %s (id integer primary key autoincrement, %s TEXT, %s TEXT, %s TEXT, %s INTEGER," +
+//                        " %s TEXT NULL, %s INTEGER DEFAULT 0, %s BLOB NULL," +
+//                        " %s TEXT NULL, %s REAL NULL, %s TEXT NULL, %s REAL DEFAULT 0, %s INTEGER DEFAULT 0);",
+//                TableVehicle.TABLE, TableVehicle.KEY_TITLE, TableVehicle.KEY_MARK, TableVehicle.KEY_MODEL, TableVehicle.KEY_YEAR,
+//                TableVehicle.KEY_COLOR, TableVehicle.KEY_ODOMETR, TableVehicle.KEY_AVATAR,
+//                TableVehicle.KEY_ENGINE, TableVehicle.KEY_POWER_ENGINE, TableVehicle.KEY_BODY, TableVehicle.KEY_TANK_LITERS, TableVehicle.KEY_MASS);
 
-        sqLiteDatabase.execSQL(createQuery);
+        sqLiteDatabase.execSQL(TableVehicle.createTableString());
+        sqLiteDatabase.execSQL(TableOilChange.createTableString());
+
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int oldVersion, int newVersion) {
-        String dropQuery = String.format("DROP TABLE IF EXISTS %s", TableVehicle.TABLE);
-        sqLiteDatabase.execSQL(dropQuery);
+//        String dropQuery = String.format("DROP TABLE IF EXISTS %s", TableVehicle.TABLE);
+//        sqLiteDatabase.execSQL(dropQuery);
 
 //        if (newVersion > oldVersion){
 //            String queryUpgrade = String.format("ALTER TABLE %s" +

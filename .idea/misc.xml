@@ -8,7 +8,10 @@
         <entry key="..\:/Projects/vehicle/app/src/main/res/layout/activity_oil_change.xml" value="0.18802083333333333" />
         <entry key="..\:/Projects/vehicle/app/src/main/res/layout/activity_refueling.xml" value="0.18802083333333333" />
         <entry key="..\:/Projects/vehicle/app/src/main/res/layout/activity_select_vehicle.xml" value="0.3509963768115942" />
+        <entry key="..\:/Projects/vehicle/app/src/main/res/layout/fragment_add_oil.xml" value="0.33" />
         <entry key="..\:/Projects/vehicle/app/src/main/res/layout/vehicle_list_view.xml" value="0.3509963768115942" />
+        <entry key="..\:/Projects/vehicle/app/src/main/res/layout/view_oil_change_list.xml" value="0.259963768115942" />
+        <entry key="..\:/Projects/vehicle/app/src/main/res/layout/view_vehicle_list.xml" value="0.259963768115942" />
         <entry key="..\:/Projects/vehicle/app/src/main/res/menu/menu_context_select_vehicle.xml" value="0.18802083333333333" />
         <entry key="..\:/Projects/vehicle/app/src/main/res/menu/menu_items.xml" value="0.3625" />
         <entry key="..\:/Projects/vehicle/app/src/main/res/menu/menu_main_vehicle.xml" value="0.18802083333333333" />

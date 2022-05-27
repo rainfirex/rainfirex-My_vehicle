@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="oil_is_station">информацио о станции замены</string>
+    <string name="oil_change_station">Станция</string>
+    <string name="oil_change_date">Дата</string>
+    <string name="oil_address">Адрес</string>
+    <string name="oil_odometr">Пробег (КМ)</string>
+    <string name="oil_name">Мотор. масло</string>
+    <string name="oil_liter">Литров масла:</string>
+    <string name="oil_price">Цена за литр</string>
+    <string name="oil_air_filter_name">Фильтр</string>
+    <string name="oil_air_filter_price">Цена фильтра</string>
+    <string name="oil_btn_add">Заменить</string>
+    <string name="oil_btn_date">Задать</string>
+    <string name="oil_change_air_filer">Замена воздушного фильтра</string>
+</resources>

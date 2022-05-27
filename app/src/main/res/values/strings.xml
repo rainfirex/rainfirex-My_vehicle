@@ -25,4 +25,7 @@
     <string name="activity_create_vehicle">Добавить транспорт</string>
     <string name="activity_edit_vehicle">Изменить транспорт</string>
     <string name="activity_select_vehicle">Выбор транспорта</string>
+
+    <string name="oil_list_change">Список</string>
+    <string name="oil_add_change">Заменить</string>
 </resources>
