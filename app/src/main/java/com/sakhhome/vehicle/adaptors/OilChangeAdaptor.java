@@ -10,6 +10,7 @@ import android.widget.TextView;
 import com.sakhhome.vehicle.R;
 import com.sakhhome.vehicle.models.OilChange;
 
+import java.text.DecimalFormat;
 import java.util.List;
 
 public class OilChangeAdaptor extends BaseAdapter {
@@ -40,7 +41,7 @@ public class OilChangeAdaptor extends BaseAdapter {
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
         if (view == null){
-            view = inflater.inflate(R.layout.view_oil_change_list, viewGroup, false);
+            view = inflater.inflate(R.layout.view_oil_change_list_item, viewGroup, false);
         }
 
         TextView txtDate = view.findViewById(R.id.txtDate);
@@ -55,12 +56,13 @@ public class OilChangeAdaptor extends BaseAdapter {
         txtDate.setText(String.format(" %s ", oilChange.getDate()));
         txtDate.setTextColor(Color.RED);
 
-        txtOdometr.setText( String.format(" %s КМ", oilChange.getOdometr()));
+        txtOdometr.setText( String.format(" %s %s", oilChange.getOdometr(), view.getResources().getText(R.string.km)));
         txtOdometr.setTextColor(Color.BLUE);
 
-        txtOilName.setText(String.format("%s %s", view.getResources().getText(R.string.odometr_oil_motor), oilChange.getOilName()));
+        txtOilName.setText(String.format("%s %s, %s %s",
+                view.getResources().getText(R.string.odometr_oil_motor), oilChange.getOilName(), oilChange.getOilLiter(), view.getResources().getText(R.string.litre)));
 
-        txtSum.setText(String.format(" %s", sum));
+        txtSum.setText(String.format(" %s %s", new DecimalFormat("0.00").format(sum), view.getResources().getText(R.string.rub)));
         txtSum.setTextColor(Color.rgb(100,205,50));
 
         return view;

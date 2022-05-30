@@ -9,16 +9,27 @@
         android:layout_margin="6dp"
         android:orientation="vertical">
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="14dp"
+            android:textStyle="bold"
+            android:textSize="20dp"
+            android:text="@string/oil_change_new"/>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:padding="5dp">
-            <TextView
+            <Button
+                android:id="@+id/btnSetDate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/oil_change_date"
-                android:minWidth="110dp"/>
+                android:minWidth="110dp"
+                android:text="@string/oil_change_date" />
             <EditText
                 android:id="@+id/txtDateChange"
                 android:layout_width="match_parent"
@@ -27,11 +38,6 @@
                 android:layout_weight="1"
                 android:hint="@string/required_field"
                 android:minHeight="48dp"/>
-            <Button
-                android:id="@+id/btnSetDate"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/oil_btn_date"/>
         </LinearLayout>
 
         <LinearLayout
@@ -52,7 +58,8 @@
                 android:layout_weight="1"
                 android:inputType="textWebEditText|number"
                 android:hint="@string/required_field"
-                android:minHeight="48dp"/>
+                android:minHeight="48dp"
+                android:text="0"/>
         </LinearLayout>
 
         <LinearLayout
@@ -72,7 +79,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:inputType="textWebEditText"
-                android:hint="@string/required_field"
+                android:hint="@string/option_field"
                 android:minHeight="48dp"/>
         </LinearLayout>
 
@@ -115,7 +122,121 @@
                 android:inputType="textWebEditText|numberDecimal"
                 android:minHeight="48dp"
                 android:hint="@string/option_field"
-                android:text="0"/>
+                android:text="0.0"/>
+        </LinearLayout>
+
+        <CheckBox
+            android:id="@+id/chkChangeOilFilter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:padding="5dp"
+            android:layout_marginTop="18dp"
+            android:minWidth="250dp"
+            android:text="@string/oil_change_oil_filer" />
+
+        <LinearLayout
+            android:id="@+id/layoutOilFilerName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:visibility="gone"
+            android:padding="5dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0"
+                android:text="@string/oil_filter_name"
+                android:minWidth="110dp"/>
+            <EditText
+                android:id="@+id/txtOilFilerName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:inputType="textWebEditText"
+                android:hint="@string/option_field"
+                android:minHeight="48dp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layoutOilFilerPrice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:visibility="gone"
+            android:padding="5dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0"
+                android:text="@string/oil_filter_price"
+                android:minWidth="110dp"/>
+            <EditText
+                android:id="@+id/txtOilFilterPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:inputType="textWebEditText|numberDecimal"
+                android:minHeight="48dp"
+                android:hint="@string/option_field"
+                android:text="0.0"/>
+        </LinearLayout>
+
+        <CheckBox
+            android:id="@+id/chkChangeAirFilter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:padding="5dp"
+            android:layout_marginTop="18dp"
+            android:minWidth="250dp"
+            android:text="@string/oil_change_air_filer" />
+
+        <LinearLayout
+            android:id="@+id/layoutAirName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:visibility="gone"
+            android:padding="5dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0"
+                android:text="@string/oil_air_filter_name"
+                android:minWidth="110dp"/>
+            <EditText
+                android:id="@+id/txtOilAirFilterName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:inputType="textWebEditText"
+                android:minHeight="48dp"
+                android:hint="@string/option_field"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layoutAirPrice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:visibility="gone"
+            android:padding="5dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0"
+                android:text="@string/oil_air_filter_price"
+                android:minWidth="110dp"/>
+            <EditText
+                android:id="@+id/txtOilAirFilterPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:inputType="textWebEditText|numberDecimal"
+                android:minHeight="48dp"
+                android:hint="@string/option_field"
+                android:text="0.00"/>
         </LinearLayout>
 
         <CheckBox
@@ -173,61 +294,28 @@
                 android:minHeight="48dp"/>
         </LinearLayout>
 
-        <CheckBox
-            android:id="@+id/chkChangeAirFilter"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:padding="5dp"
-            android:layout_marginTop="18dp"
-            android:minWidth="250dp"
-            android:text="@string/oil_change_air_filer" />
+
 
         <LinearLayout
-            android:id="@+id/layoutAirName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:visibility="gone"
             android:padding="5dp">
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="100dp"
+                android:layout_height="match_parent"
                 android:layout_weight="0"
-                android:text="@string/oil_air_filter_name"
+                android:text="@string/oil_work_price"
                 android:minWidth="110dp"/>
             <EditText
-                android:id="@+id/txtOilAirFilterName"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:inputType="textWebEditText|numberDecimal"
-                android:minHeight="48dp"
-                android:hint="@string/option_field"/>
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/layoutAirPrice"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:visibility="gone"
-            android:padding="5dp">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="0"
-                android:text="@string/oil_air_filter_price"
-                android:minWidth="110dp"/>
-            <EditText
-                android:id="@+id/txtOilAirFilterPrice"
+                android:id="@+id/txtOilWorkPrice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:inputType="textWebEditText|numberDecimal"
                 android:minHeight="48dp"
                 android:hint="@string/option_field"
-                android:text="0"/>
+                android:text="0.0"/>
         </LinearLayout>
 
         <Button
@@ -238,7 +326,8 @@
             android:layout_gravity="center"
             android:layout_marginTop="18dp"
             android:layout_marginLeft="12dp"
-            android:layout_marginRight="12dp"/>
+            android:layout_marginRight="12dp"
+            android:layout_marginBottom="12dp"/>
 
     </LinearLayout>
 </ScrollView>

@@ -3,11 +3,13 @@ package com.sakhhome.vehicle.utils;
 import android.database.CursorWindow;
 
 import java.lang.reflect.Field;
+import java.util.Calendar;
 
 public class Utils {
+
     /**
      * Расширение размера Cursor для выборки больших данных
-     * @param isDebug
+     * @param boolean isDebug
      */
     public static void sCursorWindowSize(boolean isDebug){
         try {
@@ -19,5 +21,29 @@ public class Utils {
                 e.printStackTrace();
             }
         }
+    }
+
+    /**
+     * Получить текущую дату
+     * @return String
+     */
+    public static String getCurrDate(){
+        final Calendar c = Calendar.getInstance();
+        int year = c.get(Calendar.YEAR);
+        int month = c.get(Calendar.MONTH) + 1;
+        int day = c.get(Calendar.DAY_OF_MONTH);
+        return String.format("%s.%s.%s", addZero(day), addZero(month), year);
+    }
+
+    /**
+     * Добавить 0
+     * @param int number
+     * @return String
+     */
+    public static String addZero(int number){
+        if(number >= 1 && number <10){
+            return String.format("0%s", number);
+        }
+        return String.valueOf(number);
     }
 }

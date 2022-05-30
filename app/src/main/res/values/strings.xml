@@ -6,6 +6,8 @@
     <string name="about_phone">8962-123-09-10</string>
 
     <string name="app_add_vehicle">Добавить</string>
+    <string name="app_setting">Настройки</string>
+    <string name="app_about">О программе</string>
     <string name="app_txt_vehicle">Транспорт:</string>
     <string name="app_txt_odometr">Пробег:</string>
     <string name="app_txt_color">Цвет:</string>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="option_field">Опциональное поле</string>
-    <string name="required_field">Обязательное поле</string>
+    <string name="option_field">опционально</string>
+    <string name="required_field">обязательно</string>
 </resources>

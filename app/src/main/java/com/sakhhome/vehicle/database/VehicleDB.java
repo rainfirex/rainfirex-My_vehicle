@@ -10,7 +10,7 @@ public class VehicleDB extends SQLiteOpenHelper {
 
     private static final int DATABASE_VERSION = 1;
 
-    private final static String DATABASE = "vehicle_helper1";
+    private final static String DATABASE = "vehicle_helper3";
 
     public VehicleDB(@Nullable Context context) {
         super(context, DATABASE, null, DATABASE_VERSION);
@@ -18,16 +18,9 @@ public class VehicleDB extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
-//        String createQuery = String.format("create table %s (id integer primary key autoincrement, %s TEXT, %s TEXT, %s TEXT, %s INTEGER," +
-//                        " %s TEXT NULL, %s INTEGER DEFAULT 0, %s BLOB NULL," +
-//                        " %s TEXT NULL, %s REAL NULL, %s TEXT NULL, %s REAL DEFAULT 0, %s INTEGER DEFAULT 0);",
-//                TableVehicle.TABLE, TableVehicle.KEY_TITLE, TableVehicle.KEY_MARK, TableVehicle.KEY_MODEL, TableVehicle.KEY_YEAR,
-//                TableVehicle.KEY_COLOR, TableVehicle.KEY_ODOMETR, TableVehicle.KEY_AVATAR,
-//                TableVehicle.KEY_ENGINE, TableVehicle.KEY_POWER_ENGINE, TableVehicle.KEY_BODY, TableVehicle.KEY_TANK_LITERS, TableVehicle.KEY_MASS);
-
         sqLiteDatabase.execSQL(TableVehicle.createTableString());
         sqLiteDatabase.execSQL(TableOilChange.createTableString());
-
+        sqLiteDatabase.execSQL(TableReFuel.createTableString());
     }
 
     @Override

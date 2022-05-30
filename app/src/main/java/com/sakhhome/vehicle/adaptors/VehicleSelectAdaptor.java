@@ -54,7 +54,7 @@ public class VehicleSelectAdaptor extends BaseAdapter {
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
         if(view == null){
-            view = inflater.inflate(R.layout.view_vehicle_list, viewGroup, false);
+            view = inflater.inflate(R.layout.view_vehicle_list_item, viewGroup, false);
         }
 
         TextView vehicleTitle = view.findViewById(R.id.vehicleTitle);

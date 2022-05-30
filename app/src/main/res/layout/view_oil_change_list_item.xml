@@ -12,14 +12,10 @@
         android:orientation="horizontal"
         android:layout_marginBottom="2dp">
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="16dp"
-            android:text="@string/date_oil_change" />
-        <TextView
             android:id="@+id/txtDate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginRight="12dp"
             android:textSize="16dp"
             android:text=" 01.01.1999 " />
         <TextView

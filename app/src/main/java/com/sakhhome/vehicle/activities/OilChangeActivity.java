@@ -4,13 +4,11 @@ import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
 
 import com.sakhhome.vehicle.R;
 import com.sakhhome.vehicle.fragments.OilAddFragment;
@@ -37,7 +35,7 @@ public class OilChangeActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_oil_change, menu);
+        getMenuInflater().inflate(R.menu.menu_oil, menu);
         return super.onCreateOptionsMenu(menu);
     }
 
@@ -57,6 +55,6 @@ public class OilChangeActivity extends AppCompatActivity {
                 .replace(R.id.fragmentOil, fragment)
                 .commit();
 
-        return super.onContextItemSelected(item);
+        return super.onOptionsItemSelected(item);
     }
 }

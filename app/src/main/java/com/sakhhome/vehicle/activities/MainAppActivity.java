@@ -7,6 +7,8 @@ import android.preference.PreferenceManager;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -26,7 +28,7 @@ import com.sakhhome.vehicle.utils.Utils;
 public class MainAppActivity extends AppCompatActivity implements View.OnClickListener {
 
     TextView txtCurrentVehicle, txtCurrentOdometr, txtCurrentColor, txtCurrentMarkModelYear, txtCurrentEngine,
-            txtCurrentBody, txtCurrentTank, txtCurrentMass;
+            txtCurrentBody, txtCurrentTank, txtCurrentMass, txtChangeVehicle;
 
     ImageView imgCurrentVehicle;
 
@@ -59,18 +61,25 @@ public class MainAppActivity extends AppCompatActivity implements View.OnClickLi
         txtCurrentTank   = findViewById(R.id.txtCurrentTank);
         txtCurrentMass   = findViewById(R.id.txtCurrentMass);
 
+        txtChangeVehicle = findViewById(R.id.txtChangeVehicle);
+        txtChangeVehicle.setOnClickListener(this);
+
         imgCurrentVehicle = findViewById(R.id.imgCurrentVehicle);
         imgCurrentVehicle.setImageResource(R.drawable.car_avatar);
-
-        int id = sharedPreferences.getInt("currentVehicleId", -1);
-
-        setCurrentVehicle(id);
 
         ImageButton imgBtnOpenFuel = findViewById(R.id.imgBtnOpenFuel);
         imgBtnOpenFuel.setOnClickListener(this);
 
         ImageButton imgBtnOpenOil = findViewById(R.id.imgBtnOpenOil);
         imgBtnOpenOil.setOnClickListener(this);
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        int id = sharedPreferences.getInt("currentVehicleId", -1);
+        setCurrentVehicle(id);
     }
 
     @Override
@@ -81,6 +90,12 @@ public class MainAppActivity extends AppCompatActivity implements View.OnClickLi
                 break;
             case R.id.imgBtnOpenOil:
                 startActivity(new Intent(this, OilChangeActivity.class));
+                break;
+            case R.id.txtChangeVehicle:
+//                Animation a = AnimationUtils.loadAnimation(this, R.anim.text_view);
+//                a.reset();
+//                txtChangeVehicle.setAnimation(a);
+                activityForResult.launch(new Intent(this, SelectVehicleActivity.class));
                 break;
         }
     }
@@ -105,7 +120,7 @@ public class MainAppActivity extends AppCompatActivity implements View.OnClickLi
 
     /**
      * Установить выбранный транспорт
-     * @param id
+     * @param int id
      */
     private void setCurrentVehicle(int id) {
         if (id == -1) return;
@@ -136,14 +151,11 @@ public class MainAppActivity extends AppCompatActivity implements View.OnClickLi
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()){
-            case R.id.add_vehicle:
-                startActivity(new Intent(this, EditVehicleActivity.class));
-                return true;
-            case R.id.select_vehicle:
-                activityForResult.launch(new Intent(this, SelectVehicleActivity.class));
-                return true;
-        }
+//        switch (item.getItemId()){
+//            case R.id.add_vehicle:
+//                startActivity(new Intent(this, EditVehicleActivity.class));
+//                return true;
+//        }
 
         return false;
     }

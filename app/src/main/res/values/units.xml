@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="rub">руб.</string>
+    <string name="km">км.</string>
+    <string name="litre">литр(а/ов)</string>
+    <string name="year">год.</string>
+</resources>

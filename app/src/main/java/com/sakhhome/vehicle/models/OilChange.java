@@ -1,12 +1,10 @@
 package com.sakhhome.vehicle.models;
 
-import android.content.Context;
-
 import com.sakhhome.vehicle.database.TableOilChange;
 
-import java.util.List;
+import java.io.Serializable;
 
-public class OilChange extends TableOilChange {
+public class OilChange extends TableOilChange implements Serializable {
 
     private int id;
     private String date;
@@ -14,10 +12,13 @@ public class OilChange extends TableOilChange {
     private String oilName;
     private int oilLiter;
     private Double oilPrice;
+    private String oilFilterName;
+    private Double oilFilterPrice;
     private String address;
     private String station;
     private String airFilterName;
     private Double airFilterPrice;
+    private Double workPrice;
 
 
 
@@ -101,18 +102,44 @@ public class OilChange extends TableOilChange {
         this.airFilterPrice = airFilterPrice;
     }
 
+    public String getOilFilterName() {
+        return oilFilterName;
+    }
+
+    public void setOilFilterName(String oilFilterName) {
+        this.oilFilterName = oilFilterName;
+    }
+
+    public Double getOilFilterPrice() {
+        return oilFilterPrice;
+    }
+
+    public void setOilFilterPrice(Double oilFilterPrice) {
+        this.oilFilterPrice = oilFilterPrice;
+    }
+
+    public Double getWorkPrice() {
+        return workPrice;
+    }
+
+    public void setWorkPrice(Double workPrice) {
+        this.workPrice = workPrice;
+    }
 
     public OilChange(int id, String date, int odometr, String oilName, int oilLiter, Double oilPrice,
-                     String address, String station, String airFilterName, Double airFilterPrice) {
-        this.id = id;
-        this.date = date;
-        this.odometr = odometr;
-        this.oilName = oilName;
+                     String address, String station, String airFilterName, Double airFilterPrice, String oilFilterName, Double oilFilterPrice, Double WorkPrice) {
+        this.id       = id;
+        this.date     = date;
+        this.odometr  = odometr;
+        this.oilName  = oilName;
         this.oilLiter = oilLiter;
         this.oilPrice = oilPrice;
-        this.address = address;
-        this.station = station;
-        this.airFilterName = airFilterName;
+        this.address  = address;
+        this.station  = station;
+        this.airFilterName  = airFilterName;
         this.airFilterPrice = airFilterPrice;
+        this.oilFilterName  = oilFilterName;
+        this.oilFilterPrice = oilFilterPrice;
+        this.workPrice      = WorkPrice;
     }
 }
