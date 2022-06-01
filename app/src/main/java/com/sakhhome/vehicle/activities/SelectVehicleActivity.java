@@ -20,10 +20,12 @@ import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 
 import com.sakhhome.vehicle.R;
 import com.sakhhome.vehicle.adaptors.VehicleSelectAdaptor;
 import com.sakhhome.vehicle.database.TableVehicle;
+import com.sakhhome.vehicle.fragments.VehicleListFragment;
 import com.sakhhome.vehicle.models.Vehicle;
 
 import java.util.List;
@@ -41,7 +43,7 @@ public class SelectVehicleActivity extends AppCompatActivity {
 
     VehicleSelectAdaptor adapterVehicle;
 
-    AlertDialog.Builder builder;
+    Fragment fragment;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -49,6 +51,13 @@ public class SelectVehicleActivity extends AppCompatActivity {
         setContentView(R.layout.activity_select_vehicle);
 
         setTitle(R.string.activity_select_vehicle);
+
+        fragment = new VehicleListFragment();
+
+        getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.fragmentVehicle, fragment)
+                .commit();
 
         listSelectVehicle = findViewById(R.id.listSelectVehicle);
         registerForContextMenu(listSelectVehicle);

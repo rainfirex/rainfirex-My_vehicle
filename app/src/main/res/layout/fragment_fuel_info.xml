@@ -18,8 +18,82 @@
             android:layout_marginBottom="14dp"
             android:textStyle="bold"
             android:textSize="20dp"
-            android:text="@string/oil_change_info_title"/>
+            android:text="@string/fuel_info_title"/>
+        <TextView
+            android:id="@+id/infoDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:textSize="16dp"/>
+        <TextView
+            android:id="@+id/infoOdometr"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:textSize="16dp"/>
+        <TextView
+            android:id="@+id/infoFuel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:textSize="16dp"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="#7b7b7b"
+            android:layout_marginLeft="4dp"
+            android:layout_marginRight="4dp"
+            android:layout_marginTop="14dp"
+            android:layout_marginBottom="14dp"/>
 
+        <TextView
+            android:id="@+id/infoAddressStation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:textSize="16dp"/>
+        <TextView
+            android:id="@+id/infoStationName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:textSize="16dp"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="#7b7b7b"
+            android:layout_marginLeft="4dp"
+            android:layout_marginRight="4dp"
+            android:layout_marginTop="14dp"
+            android:layout_marginBottom="14dp"/>
+
+
+        <TextView
+            android:id="@+id/infoFuelPrice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:textSize="16dp"/>
+        <TextView
+            android:id="@+id/infoTotalSum"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:textSize="16dp"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="#7b7b7b"
+            android:layout_marginLeft="4dp"
+            android:layout_marginRight="4dp"
+            android:layout_marginTop="14dp"
+            android:layout_marginBottom="14dp"/>
+        <TextView
+            android:id="@+id/infoNote"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:textSize="16dp"/>
         <Button
             android:id="@+id/btnDelete"
             android:layout_width="match_parent"

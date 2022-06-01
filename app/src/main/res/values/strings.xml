@@ -30,4 +30,6 @@
 
     <string name="oil_list_change">Список</string>
     <string name="oil_add_change">Заменить</string>
+
+    <string name="error_odometr">Пробег должен быть больше текущего.</string>
 </resources>

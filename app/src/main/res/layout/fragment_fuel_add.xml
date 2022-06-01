@@ -64,6 +64,22 @@
             android:layout_marginTop="15dp"
             android:padding="5dp">
             <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/fuel_type"
+                android:minWidth="110dp"/>
+            <Spinner
+                android:id="@+id/spinnerType"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="15dp"
+            android:padding="5dp">
+            <TextView
                 android:id="@+id/textViewFuelLiter"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -76,8 +92,6 @@
                 android:min="1"
                 android:max="250"/>
         </LinearLayout>
-
-
         <RadioGroup
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -97,8 +111,6 @@
                 android:layout_height="wrap_content"
                 android:text="@string/fuel_fuel_sum"/>
         </RadioGroup>
-
-
         <LinearLayout
             android:id="@+id/layoutFuelPrice"
             android:layout_width="match_parent"
@@ -122,7 +134,6 @@
                 android:minHeight="48dp"
                 android:text="0.00"/>
         </LinearLayout>
-
         <LinearLayout
             android:id="@+id/layoutFuelSum"
             android:layout_width="match_parent"

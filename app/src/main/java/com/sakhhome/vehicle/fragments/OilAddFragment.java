@@ -213,7 +213,7 @@ public class OilAddFragment extends Fragment {
             Double oilWorkPrice = (txtOilWorkPrice.getText().toString().trim().length() > 0) ? Double.parseDouble(txtOilWorkPrice.getText().toString().trim()) : 0;
 
             if(odometr <= currVehicle.getOdometr()){
-                Toast.makeText(getActivity(), "Пробег меньше текущего", Toast.LENGTH_LONG).show();
+                Toast.makeText(getActivity(), view.getResources().getText(R.string.error_odometr), Toast.LENGTH_LONG).show();
                 return;
             }
 

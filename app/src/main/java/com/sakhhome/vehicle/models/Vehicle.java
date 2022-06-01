@@ -9,7 +9,9 @@ import com.sakhhome.vehicle.database.TableVehicle;
 import com.sakhhome.vehicle.database.VehicleDB;
 import com.sakhhome.vehicle.utils.DbBitmapUtility;
 
-public class Vehicle extends TableVehicle{
+import java.io.Serializable;
+
+public class Vehicle extends TableVehicle implements Serializable {
 
     private int id;
     private String title;

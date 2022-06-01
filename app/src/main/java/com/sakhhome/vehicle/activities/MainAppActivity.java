@@ -1,5 +1,6 @@
 package com.sakhhome.vehicle.activities;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -7,8 +8,6 @@ import android.preference.PreferenceManager;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -32,7 +31,7 @@ public class MainAppActivity extends AppCompatActivity implements View.OnClickLi
 
     ImageView imgCurrentVehicle;
 
-    private final boolean DEBUG_MODE = false;
+     private final boolean DEBUG_MODE = false;
 
     // Настройки
     private SharedPreferences sharedPreferences;
@@ -92,9 +91,6 @@ public class MainAppActivity extends AppCompatActivity implements View.OnClickLi
                 startActivity(new Intent(this, OilChangeActivity.class));
                 break;
             case R.id.txtChangeVehicle:
-//                Animation a = AnimationUtils.loadAnimation(this, R.anim.text_view);
-//                a.reset();
-//                txtChangeVehicle.setAnimation(a);
                 activityForResult.launch(new Intent(this, SelectVehicleActivity.class));
                 break;
         }
@@ -149,13 +145,17 @@ public class MainAppActivity extends AppCompatActivity implements View.OnClickLi
         return true;
     }
 
+    @SuppressLint("NonConstantResourceId")
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-//        switch (item.getItemId()){
-//            case R.id.add_vehicle:
-//                startActivity(new Intent(this, EditVehicleActivity.class));
-//                return true;
-//        }
+        switch (item.getItemId()){
+            case R.id.mainAbout:
+                startActivity(new Intent(this, AboutActivity.class));
+                return true;
+            case R.id.mainSetting:
+                startActivity(new Intent(this, SettingActivity.class));
+                break;
+        }
 
         return false;
     }

@@ -20,6 +20,8 @@
         <activity android:name="com.sakhhome.vehicle.activities.SelectVehicleActivity" />
         <activity android:name="com.sakhhome.vehicle.activities.OilChangeActivity" />
         <activity android:name="com.sakhhome.vehicle.activities.RefuelingActivity" />
+        <activity android:name="com.sakhhome.vehicle.activities.AboutActivity" />
+        <activity android:name="com.sakhhome.vehicle.activities.SettingActivity" />
     </application>
 
 </manifest>

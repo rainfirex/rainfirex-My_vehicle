@@ -9,6 +9,8 @@ import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
@@ -17,6 +19,7 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.SeekBar;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -39,6 +42,7 @@ public class FuelAddFragment extends Fragment {
     private SeekBar seekBarFuelLiter;
     private RadioButton radioLiterPrice, radioSum;
     private LinearLayout layoutFuelPrice, layoutFuelSum, layoutFuelAddress, layoutFuelStation;
+    private Spinner spinnerType;
 
     private Vehicle currVehicle;
 
@@ -86,6 +90,13 @@ public class FuelAddFragment extends Fragment {
         txtFuelStation = v.findViewById(R.id.txtFuelStation);
 
         txtNote = v.findViewById(R.id.txtNote);
+
+        String[] typeFuel = getResources().getStringArray(R.array.fuel_array);
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(v.getContext(), android.R.layout.simple_list_item_1, typeFuel);
+
+        spinnerType = v.findViewById(R.id.spinnerType);
+        spinnerType.setAdapter(adapter);
+
 
         Button btnSetDate = v.findViewById(R.id.btnSetDate);
         btnSetDate.setOnClickListener(btnSetDate_click);
@@ -276,12 +287,11 @@ public class FuelAddFragment extends Fragment {
             String note = txtNote.getText().toString().trim();
 
             if(odometr <= currVehicle.getOdometr()){
-                Toast.makeText(getActivity(), "Пробег меньше текущего", Toast.LENGTH_LONG).show();
+                Toast.makeText(getActivity(), view.getResources().getText(R.string.error_odometr), Toast.LENGTH_LONG).show();
                 return;
             }
 
-            String type = "95";
-            ReFuel.create(getContext(), date, odometr, type, oilLiter, fuelPrice, sum, address, station, note, currVehicle.getId());
+            ReFuel.create(getContext(), date, odometr, spinnerType.getSelectedItem().toString(), oilLiter, fuelPrice, sum, address, station, note, currVehicle.getId());
 
             Toast.makeText(getActivity(), "Сумма: " + sum, Toast.LENGTH_LONG).show();
 

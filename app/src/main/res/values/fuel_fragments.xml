@@ -5,6 +5,7 @@
     <string name="fuel_odometr">Пробег (КМ)</string>
     <string name="fuel_fuel_price">Цена за литр</string>
     <string name="fuel_liter">Литры</string>
+    <string name="fuel_type">Тип топлива</string>
     <string name="fuel_fuel_sum">Общая сумма</string>
     <string name="fuel_litres">Литров:</string>
     <string name="refueling_station_name">Заправочная станция</string>
@@ -12,4 +13,6 @@
     <string name="fuel_station">Станция:</string>
     <string name="fuel_note">Примечание:</string>
     <string name="fuel_btn_add">Заправить</string>
+
+    <string name="fuel_info_title">Информация по заправки</string>
 </resources>

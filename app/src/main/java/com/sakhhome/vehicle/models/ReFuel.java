@@ -1,5 +1,7 @@
 package com.sakhhome.vehicle.models;
 
+import android.content.Context;
+
 import com.sakhhome.vehicle.database.TableReFuel;
 
 import java.io.Serializable;
@@ -15,6 +17,7 @@ public class ReFuel extends TableReFuel implements Serializable {
     private String address;
     private String station;
     private String note;
+
 
     public int getId() {
         return id;

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="fuel_array">
+        <item>АИ-92</item>
+        <item>АИ-95</item>
+        <item>АИ-98</item>
+        <item>ДТ</item>
+    </string-array>
+</resources>

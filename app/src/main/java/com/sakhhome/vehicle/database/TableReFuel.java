@@ -106,4 +106,15 @@ public abstract class TableReFuel {
 
         return list;
     }
+
+    public static int delete(Context context, int id) {
+        VehicleDB vehicleDB = new VehicleDB(context);
+        SQLiteDatabase db = vehicleDB.getWritableDatabase();
+
+        int count = db.delete(TABLE, KEY_ID + " = ?", new String[]{String.valueOf(id)});
+
+        db.close();
+
+        return count;
+    }
 }
