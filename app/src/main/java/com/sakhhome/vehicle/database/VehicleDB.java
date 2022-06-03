@@ -10,7 +10,7 @@ public class VehicleDB extends SQLiteOpenHelper {
 
     private static final int DATABASE_VERSION = 1;
 
-    private final static String DATABASE = "vehicle_helper3";
+    private final static String DATABASE = "vehicle_helper";
 
     public VehicleDB(@Nullable Context context) {
         super(context, DATABASE, null, DATABASE_VERSION);
@@ -21,6 +21,7 @@ public class VehicleDB extends SQLiteOpenHelper {
         sqLiteDatabase.execSQL(TableVehicle.createTableString());
         sqLiteDatabase.execSQL(TableOilChange.createTableString());
         sqLiteDatabase.execSQL(TableReFuel.createTableString());
+        sqLiteDatabase.execSQL(TableOsago.createTableString());
     }
 
     @Override

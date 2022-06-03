@@ -6,9 +6,11 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
 
+import com.sakhhome.vehicle.models.Osago;
 import com.sakhhome.vehicle.models.Vehicle;
 import com.sakhhome.vehicle.utils.DbBitmapUtility;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -111,20 +113,20 @@ public abstract class TableVehicle {
         VehicleDB vehicleDB = new VehicleDB(context);
         SQLiteDatabase db = vehicleDB.getWritableDatabase();
 
-        Cursor c = db.query(TableVehicle.TABLE, new String[]{"*"}, TableVehicle.KEY_ID + " = ?", new String[]{String.valueOf(id)}, null,null, null);
+        Cursor c = db.query(TABLE, new String[]{"*"}, KEY_ID + " = ?", new String[]{String.valueOf(id)}, null,null, null);
         if(c.moveToFirst()){
-            int titleIndex   = c.getColumnIndex(TableVehicle.KEY_TITLE);
-            int markIndex    = c.getColumnIndex(TableVehicle.KEY_MARK);
-            int modelIndex   = c.getColumnIndex(TableVehicle.KEY_MODEL);
-            int yearIndex    = c.getColumnIndex(TableVehicle.KEY_YEAR);
-            int colorIndex   = c.getColumnIndex(TableVehicle.KEY_COLOR);
-            int odometrIndex = c.getColumnIndex(TableVehicle.KEY_ODOMETR);
-            int avatarIndex  = c.getColumnIndex(TableVehicle.KEY_AVATAR);
-            int engineIndex  = c.getColumnIndex(TableVehicle.KEY_ENGINE);
-            int enginePowerIndex  = c.getColumnIndex(TableVehicle.KEY_POWER_ENGINE);
-            int bodyIndex  = c.getColumnIndex(TableVehicle.KEY_BODY);
-            int tankIndex  = c.getColumnIndex(TableVehicle.KEY_TANK_LITERS);
-            int massIndex  = c.getColumnIndex(TableVehicle.KEY_MASS);
+            int titleIndex   = c.getColumnIndex(KEY_TITLE);
+            int markIndex    = c.getColumnIndex(KEY_MARK);
+            int modelIndex   = c.getColumnIndex(KEY_MODEL);
+            int yearIndex    = c.getColumnIndex(KEY_YEAR);
+            int colorIndex   = c.getColumnIndex(KEY_COLOR);
+            int odometrIndex = c.getColumnIndex(KEY_ODOMETR);
+            int avatarIndex  = c.getColumnIndex(KEY_AVATAR);
+            int engineIndex  = c.getColumnIndex(KEY_ENGINE);
+            int enginePowerIndex  = c.getColumnIndex(KEY_POWER_ENGINE);
+            int bodyIndex  = c.getColumnIndex(KEY_BODY);
+            int tankIndex  = c.getColumnIndex(KEY_TANK_LITERS);
+            int massIndex  = c.getColumnIndex(KEY_MASS);
 
             String title   = c.getString(titleIndex);
             String mark    = c.getString(markIndex);
@@ -173,20 +175,20 @@ public abstract class TableVehicle {
         byte[] avatarByte = (avatar != null) ? DbBitmapUtility.getBytes(avatar) : null;
 
         ContentValues cv = new  ContentValues();
-        cv.put(TableVehicle.KEY_TITLE, title);
-        cv.put(TableVehicle.KEY_MARK, mark);
-        cv.put(TableVehicle.KEY_MODEL, model);
-        cv.put(TableVehicle.KEY_YEAR, year);
-        cv.put(TableVehicle.KEY_COLOR, color);
-        cv.put(TableVehicle.KEY_ODOMETR, odometr);
-        cv.put(TableVehicle.KEY_AVATAR, avatarByte);
-        cv.put(TableVehicle.KEY_ENGINE, engine);
-        cv.put(TableVehicle.KEY_POWER_ENGINE, enginePower);
-        cv.put(TableVehicle.KEY_BODY, body);
-        cv.put(TableVehicle.KEY_TANK_LITERS, tank);
-        cv.put(TableVehicle.KEY_MASS, mass);
+        cv.put(KEY_TITLE, title);
+        cv.put(KEY_MARK, mark);
+        cv.put(KEY_MODEL, model);
+        cv.put(KEY_YEAR, year);
+        cv.put(KEY_COLOR, color);
+        cv.put(KEY_ODOMETR, odometr);
+        cv.put(KEY_AVATAR, avatarByte);
+        cv.put(KEY_ENGINE, engine);
+        cv.put(KEY_POWER_ENGINE, enginePower);
+        cv.put(KEY_BODY, body);
+        cv.put(KEY_TANK_LITERS, tank);
+        cv.put(KEY_MASS, mass);
 
-        long id = db.insert(TableVehicle.TABLE, null, cv);
+        long id = db.insert(TABLE, null, cv);
 
         db.close();
 
@@ -207,7 +209,7 @@ public abstract class TableVehicle {
         VehicleDB vehicleDB = new VehicleDB(context);
         SQLiteDatabase db = vehicleDB.getWritableDatabase();
 
-        int count = db.delete(TableVehicle.TABLE, TableVehicle.KEY_ID + " = ?", new String[]{String.valueOf(id)});
+        int count = db.delete(TABLE, KEY_ID + " = ?", new String[]{String.valueOf(id)});
 
         db.close();
 
@@ -221,7 +223,4 @@ public abstract class TableVehicle {
      */
     public abstract int save(Context context);
 
-    public static int update(){
-        return -1;
-    }
 }

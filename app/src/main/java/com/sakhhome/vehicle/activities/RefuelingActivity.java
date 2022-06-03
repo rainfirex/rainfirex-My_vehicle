@@ -22,7 +22,7 @@ public class RefuelingActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_refueling);
 
-        setTitle(R.string.activity_refueling);
+        setTitle(R.string.title_fuel_activity);
 
         fragment = new FuelListFragment();
 

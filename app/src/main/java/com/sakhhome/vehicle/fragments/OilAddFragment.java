@@ -190,15 +190,6 @@ public class OilAddFragment extends Fragment {
         @Override
         public void onClick(View view) {
 
-            if (txtDateChange.getText().toString().trim().equalsIgnoreCase("")){
-                txtDateChange.requestFocus();
-                return;
-            }
-            if (txtOdometr.getText().toString().trim().equalsIgnoreCase("")){
-                txtOdometr.requestFocus();
-                return;
-            }
-
             String date = txtDateChange.getText().toString().trim();
             int odometr = Integer.parseInt(txtOdometr.getText().toString().trim());
             String oilName = txtOilName.getText().toString().trim();
@@ -212,6 +203,14 @@ public class OilAddFragment extends Fragment {
             Double oilFilterPrice = (txtOilFilterPrice.getText().toString().trim().length() > 0) ? Double.parseDouble(txtOilFilterPrice.getText().toString().trim()) : 0;
             Double oilWorkPrice = (txtOilWorkPrice.getText().toString().trim().length() > 0) ? Double.parseDouble(txtOilWorkPrice.getText().toString().trim()) : 0;
 
+            if (date.equalsIgnoreCase("")){
+                txtDateChange.requestFocus();
+                return;
+            }
+            if (odometr <= 0){
+                txtOdometr.requestFocus();
+                return;
+            }
             if(odometr <= currVehicle.getOdometr()){
                 Toast.makeText(getActivity(), view.getResources().getText(R.string.error_odometr), Toast.LENGTH_LONG).show();
                 return;

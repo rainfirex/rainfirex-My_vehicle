@@ -8,6 +8,7 @@ import android.preference.PreferenceManager;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -26,12 +27,12 @@ import com.sakhhome.vehicle.utils.Utils;
 
 public class MainAppActivity extends AppCompatActivity implements View.OnClickListener {
 
-    TextView txtCurrentVehicle, txtCurrentOdometr, txtCurrentColor, txtCurrentMarkModelYear, txtCurrentEngine,
+    private TextView txtCurrentVehicle, txtCurrentOdometr, txtCurrentColor, txtCurrentMarkModelYear, txtCurrentEngine,
             txtCurrentBody, txtCurrentTank, txtCurrentMass, txtChangeVehicle;
 
-    ImageView imgCurrentVehicle;
+    private ImageView imgCurrentVehicle;
 
-     private final boolean DEBUG_MODE = false;
+    private final boolean DEBUG_MODE = false;
 
     // Настройки
     private SharedPreferences sharedPreferences;
@@ -47,7 +48,7 @@ public class MainAppActivity extends AppCompatActivity implements View.OnClickLi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_app);
 
-        setTitle(R.string.activity_main);
+        setTitle(R.string.main_vehicle_title);
 
         sharedPreferences = PreferenceManager.getDefaultSharedPreferences(MainAppActivity.this);
 
@@ -66,11 +67,15 @@ public class MainAppActivity extends AppCompatActivity implements View.OnClickLi
         imgCurrentVehicle = findViewById(R.id.imgCurrentVehicle);
         imgCurrentVehicle.setImageResource(R.drawable.car_avatar);
 
-        ImageButton imgBtnOpenFuel = findViewById(R.id.imgBtnOpenFuel);
-        imgBtnOpenFuel.setOnClickListener(this);
+        Button btnRefuel = findViewById(R.id.btnRefuel);
+        btnRefuel.setOnClickListener(this);
 
-        ImageButton imgBtnOpenOil = findViewById(R.id.imgBtnOpenOil);
-        imgBtnOpenOil.setOnClickListener(this);
+        Button btnChangeOil1 = findViewById(R.id.btnChangeOil1);
+        btnChangeOil1.setOnClickListener(this);
+
+        Button btnOsago = findViewById(R.id.btnOsago);
+        btnOsago.setOnClickListener(this);
+
     }
 
     @Override
@@ -84,14 +89,17 @@ public class MainAppActivity extends AppCompatActivity implements View.OnClickLi
     @Override
     public void onClick(View view) {
         switch (view.getId()){
-            case R.id.imgBtnOpenFuel:
+            case R.id.btnRefuel:
                 startActivity(new Intent(this, RefuelingActivity.class));
                 break;
-            case R.id.imgBtnOpenOil:
+            case R.id.btnChangeOil1:
                 startActivity(new Intent(this, OilChangeActivity.class));
                 break;
             case R.id.txtChangeVehicle:
                 activityForResult.launch(new Intent(this, SelectVehicleActivity.class));
+                break;
+            case R.id.btnOsago:
+                startActivity(new Intent(this, OsagoActivity.class));
                 break;
         }
     }
@@ -116,7 +124,7 @@ public class MainAppActivity extends AppCompatActivity implements View.OnClickLi
 
     /**
      * Установить выбранный транспорт
-     * @param int id
+     * @param id
      */
     private void setCurrentVehicle(int id) {
         if (id == -1) return;
@@ -156,7 +164,6 @@ public class MainAppActivity extends AppCompatActivity implements View.OnClickLi
                 startActivity(new Intent(this, SettingActivity.class));
                 break;
         }
-
         return false;
     }
 

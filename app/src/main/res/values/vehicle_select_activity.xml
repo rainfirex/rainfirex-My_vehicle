@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="select_vehicle_title">Выбор транспорта</string>
+    <string name="select_vehicle_create_title">Добавить транспорт</string>
+    <string name="select_vehicle_edit_title">Изменить транспорт</string>
+
+    <!--Меню-->
+    <string name="select_vehicle_add_mnu">Добавить</string>
+
+    <!--Контекстное меню-->
+    <string name="select_vehicle_edit_cnx">Редактировать</string>
+    <string name="select_vehicle_delete_cnx">Удалить</string>
+</resources>

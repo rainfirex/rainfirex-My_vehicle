@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--Поля-->
+    <string name="edit_vehicle_img_avatar_descrip">Изображение</string>
+    <string name="edit_vehicle_txt_name">Название</string>
+    <string name="edit_vehicle_txt_year">Год выпуска</string>
+    <string name="edit_vehicle_txt_mark">Марка</string>
+    <string name="edit_vehicle_txt_model">Модель</string>
+    <string name="edit_vehicle_txt_color">Цвет</string>
+    <string name="edit_vehicle_txt_odometr">Пробег (КМ)</string>
+    <string name="edit_vehicle_txt_engine_name">Двигатель</string>
+    <string name="edit_vehicle_txt_engine_v">Объем движка</string>
+    <string name="edit_vehicle_txt_carcas">Кузов №</string>
+    <string name="edit_vehicle_txt_v_tank">Объем топливного бака</string>
+    <string name="edit_vehicle_txt_we">Вес (КГ)</string>
+    <!--Кнопки-->
+    <string name="edit_vehicle_btn_change">Изменить</string>
+    <string name="edit_vehicle_btn_add">Добавить</string>
+    <!--Сообщения об ошибке-->
+    <string name="edit_vehicle_err_title">Укажите название</string>
+    <string name="edit_vehicle_err_odometr">Укажите пробег в формате (0000+)</string>
+    <string name="edit_vehicle_err_mark">Укажите марку</string>
+    <string name="edit_vehicle_err_model">Укажите модель</string>
+    <string name="edit_vehicle_err_year">Укажите год</string>
+    <string name="edit_vehicle_err_engine_name">Укажите название двигателя</string>
+    <string name="edit_vehicle_err_engine_v">Укажите объем двигателя в формате (0.0)</string>
+    <string name="edit_vehicle_err_tank">Укажите объем топливного бака в формате (00)</string>
+    <string name="edit_vehicle_err_mass">Укажите вес в формате (0000)</string>
+</resources>

@@ -62,82 +62,121 @@
                 android:layout_height="wrap_content"
                 android:paddingBottom="5dp"
                 android:textSize="16dp"
-                android:text="@string/app_txt_vehicle"/>
+                android:text="@string/main_txt_vehicle"/>
             <TextView
                 android:id="@+id/txtCurrentColor"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingBottom="5dp"
                 android:textSize="16dp"
-                android:text="@string/app_txt_color"/>
+                android:text="@string/main_txt_color"/>
             <TextView
                 android:id="@+id/txtCurrentOdometr"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingBottom="5dp"
                 android:textSize="16dp"
-                android:text="@string/app_txt_odometr"/>
+                android:text="@string/main_txt_odometr"/>
             <TextView
                 android:id="@+id/txtCurrentEngine"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingBottom="5dp"
                 android:textSize="16dp"
-                android:text="@string/app_txt_engine"/>
+                android:text="@string/main_txt_engine"/>
             <TextView
                 android:id="@+id/txtCurrentBody"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingBottom="5dp"
                 android:textSize="16dp"
-                android:text="@string/app_txt_body"/>
+                android:text="@string/main_txt_body"/>
             <TextView
                 android:id="@+id/txtCurrentTank"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingBottom="5dp"
                 android:textSize="16dp"
-                android:text="@string/app_txt_tank"/>
+                android:text="@string/main_txt_tank"/>
             <TextView
                 android:id="@+id/txtCurrentMass"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingBottom="5dp"
                 android:textSize="16dp"
-                android:text="@string/app_txt_mass"/>
+                android:text="@string/main_txt_mass"/>
         </LinearLayout>
     </LinearLayout>
 
     <LinearLayout
-        android:layout_marginTop="25dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_gravity="center"
-        android:gravity="center">
-        <ImageButton
-            android:id="@+id/imgBtnOpenFuel"
-            android:layout_width="140dp"
-            android:layout_height="150dp"
-            android:layout_gravity="center"
-            android:background="@android:color/background_light"
-            android:contentDescription="Кнопка fuel"
-            android:padding="30dp"
-            android:scaleType="fitCenter"
-            android:layout_marginRight="2dp"
-            app:srcCompat="@drawable/fuel" />
-        <ImageButton
-            android:id="@+id/imgBtnOpenOil"
-            android:layout_width="140dp"
-            android:layout_height="150dp"
-            android:layout_gravity="center"
-            android:background="@android:color/background_light"
-            android:contentDescription="Кнопка fuel"
-            android:padding="30dp"
-            android:scaleType="fitCenter"
-            android:layout_marginLeft="2dp"
-            app:srcCompat="@drawable/oil" />
+        android:gravity="center"
+        android:layout_marginTop="25dp"
+        android:layout_margin="10dp"
+        android:orientation="horizontal">
+        <FrameLayout android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <Button android:id="@+id/btnRefuel"
+                android:layout_width="110dp"
+                android:layout_height="110dp" />
+            <ImageView android:layout_width="65dp"
+                android:layout_height="65dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/fuel"
+                android:translationZ="10dp"
+                android:layout_gravity="center"/>
+            <TextView
+                android:layout_width="110dp"
+                android:gravity="center"
+                android:layout_height="wrap_content"
+                android:translationZ="11dp"
+                android:textStyle="bold"
+                android:layout_marginTop="85dp"
+                android:text="@string/main_btn_text_fuel"/>
+        </FrameLayout>
+        <FrameLayout android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <Button android:id="@+id/btnChangeOil1"
+                android:layout_width="110dp"
+                android:layout_height="110dp" />
+            <ImageView android:layout_width="65dp"
+                android:layout_height="65dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/oil"
+                android:translationZ="10dp"
+                android:layout_gravity="center"
+                android:contentDescription="TODO" />
+            <TextView
+                android:layout_width="110dp"
+                android:gravity="center"
+                android:layout_height="wrap_content"
+                android:translationZ="11dp"
+                android:textStyle="bold"
+                android:layout_marginTop="85dp"
+                android:text="@string/main_btn_text_oil"/>
+        </FrameLayout>
+        <FrameLayout android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <Button android:id="@+id/btnOsago"
+                android:layout_width="110dp"
+                android:layout_height="110dp" />
+            <ImageView android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/osago"
+                android:translationZ="10dp"
+                android:layout_gravity="center"
+                android:contentDescription="TODO" />
+            <TextView
+                android:layout_width="110dp"
+                android:gravity="center"
+                android:layout_height="wrap_content"
+                android:translationZ="11dp"
+                android:textStyle="bold"
+                android:layout_marginTop="85dp"
+                android:text="@string/main_btn_text_osago"/>
+        </FrameLayout>
     </LinearLayout>
-
 
 </LinearLayout>

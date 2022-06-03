@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="activity_oil_change">Замена масла</string>
+    <string name="oil_list_change">Список</string>
+    <string name="oil_add_change">Заменить</string>
+</resources>

@@ -1,35 +1,5 @@
 <resources>
     <string name="app_name">My Vehicle</string>
-
-    <string name="about_name">Alex</string>
-    <string name="about_email">rainfire491@gmail.com</string>
-    <string name="about_phone">8962-123-09-10</string>
-
-    <string name="app_add_vehicle">Добавить</string>
-    <string name="app_setting">Настройки</string>
-    <string name="app_about">О программе</string>
-    <string name="app_txt_vehicle">Транспорт:</string>
-    <string name="app_txt_odometr">Пробег:</string>
-    <string name="app_txt_color">Цвет:</string>
-    <string name="app_edit_vehicle">Изменить ТС</string>
-    <string name="app_select_vehicle">Выбрать ТС</string>
-    <string name="app_select_edit_vehicle">Редактировать</string>
-    <string name="app_select_delete_vehicle">Удалить</string>
-    <string name="app_km">КМ</string>
-    <string name="app_txt_engine">Двигатель:</string>
-    <string name="app_txt_mass">Масса:</string>
-    <string name="app_txt_tank">Бак:</string>
-    <string name="app_txt_body">Кузов:</string>
-
-    <string name="activity_oil_change">Замена масла</string>
-    <string name="activity_refueling">Заправка</string>
-    <string name="activity_main">Ваш транспорт</string>
-    <string name="activity_create_vehicle">Добавить транспорт</string>
-    <string name="activity_edit_vehicle">Изменить транспорт</string>
-    <string name="activity_select_vehicle">Выбор транспорта</string>
-
-    <string name="oil_list_change">Список</string>
-    <string name="oil_add_change">Заменить</string>
-
+    <string name="app_version">0.0.3</string>
     <string name="error_odometr">Пробег должен быть больше текущего.</string>
 </resources>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="osago_title">Страховой полис ОСАГО</string>
+    <string name="osago_img_description">Изображение полиса</string>
+    <string name="osago_txt_date_reg">Дата регистрации полиса</string>
+    <string name="osago_txt_date_end">Дата окончание полиса</string>
+    <string name="osago_btn_date_reg">Выбрать</string>
+    <string name="osago_btn_date_end">Выбрать</string>
+    <string name="osago_txt_hit_date">03.06.2022</string>
+    <string name="osago_btn_add_osago">Сохранить</string>
+
+    <string name="osago_err_img">Выберите изображение полиса</string>
+    <string name="osago_err_date_reg">Укажите дату регистрации</string>
+    <string name="osago_err_date_end">Укажите дату окончания</string>
+
+    <string name="osago_create">Полис сохранен</string>
+    <string name="osago_update">Полис обновлен</string>
+</resources>

@@ -2,9 +2,11 @@ package com.sakhhome.vehicle.models;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
 
+import com.sakhhome.vehicle.database.TableOsago;
 import com.sakhhome.vehicle.database.TableVehicle;
 import com.sakhhome.vehicle.database.VehicleDB;
 import com.sakhhome.vehicle.utils.DbBitmapUtility;
@@ -175,5 +177,32 @@ public class Vehicle extends TableVehicle implements Serializable {
         cv.put(KEY_MASS, this.mass);
 
         return db.update(TABLE, cv, "id = ?", new String[]{ String.valueOf(id) });
+    }
+
+    public Osago getOsago(Context context){
+        VehicleDB vehicleDB = new VehicleDB(context);
+        SQLiteDatabase db = vehicleDB.getWritableDatabase();
+
+        Osago osago = null;
+
+        Cursor c = db.query(TableOsago.TABLE, new String[]{"*"}, TableOsago.KEY_VEHICLE_ID + " = ?", new String[]{String.valueOf(id)}, null,null, null);
+
+        if(c.moveToFirst()){
+            int dateRegIndex = c.getColumnIndex(TableOsago.KEY_DATE_REG);
+            int dateEndIndex = c.getColumnIndex(TableOsago.KEY_DATE_END);
+            int osagoIndex   = c.getColumnIndex(TableOsago.KEY_OSAGO_IMG);
+
+            String dateReg = c.getString(dateRegIndex);
+            String dateEnd = c.getString(dateEndIndex);
+            byte[] osagoByte   = c.getBlob(osagoIndex);
+
+            Bitmap osagoImg   = (osagoByte != null) ? DbBitmapUtility.getImage(osagoByte) : null;
+
+            db.close();
+
+            osago = new Osago(id, dateReg, dateEnd, osagoImg);
+        }
+
+        return osago;
     }
 }

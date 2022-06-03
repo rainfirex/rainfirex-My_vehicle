@@ -3,9 +3,9 @@
     <item
         android:id="@+id/itemEditVehicle"
         android:orderInCategory="1"
-        android:title="@string/app_select_edit_vehicle"/>
+        android:title="@string/select_vehicle_edit_cnx"/>
     <item
         android:id="@+id/itemDeleteVehicle"
         android:orderInCategory="1"
-        android:title="@string/app_select_delete_vehicle"/>
+        android:title="@string/select_vehicle_delete_cnx"/>
 </menu>
