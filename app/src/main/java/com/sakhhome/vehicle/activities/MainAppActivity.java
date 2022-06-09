@@ -3,6 +3,8 @@ package com.sakhhome.vehicle.activities;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.view.Menu;
@@ -22,6 +24,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.sakhhome.vehicle.R;
+import com.sakhhome.vehicle.database.ConnectDBTest;
 import com.sakhhome.vehicle.models.Vehicle;
 import com.sakhhome.vehicle.utils.Utils;
 
@@ -76,6 +79,21 @@ public class MainAppActivity extends AppCompatActivity implements View.OnClickLi
         Button btnOsago = findViewById(R.id.btnOsago);
         btnOsago.setOnClickListener(this);
 
+        Button btnConn = findViewById(R.id.btnConn);
+        btnConn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ConnectDBTest.conn(getBaseContext());
+            }
+        });
+
+        Button btnDisConn = findViewById(R.id.btnDisConn);
+        btnDisConn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ConnectDBTest.close();
+            }
+        });
     }
 
     @Override
@@ -131,21 +149,51 @@ public class MainAppActivity extends AppCompatActivity implements View.OnClickLi
 
         currentVehicle = Vehicle.get(getApplicationContext(), id);
 
-        if (currentVehicle == null) return;
+        String title;
+        String fullname;
+        String color;
+        String odometr;
+        String engine;
+        String body;
+        String tank;
+        String mass;
 
-        txtCurrentVehicle.setText(currentVehicle.getTitle());
-        txtCurrentMarkModelYear.setText(String.format("%s %s %s г.", currentVehicle.getMark(), currentVehicle.getModel(), currentVehicle.getYear()));
-        txtCurrentColor.setText(String.format("Цвет: %s", currentVehicle.getColor()));
-        txtCurrentOdometr.setText(String.format("Пробег: %s КМ", currentVehicle.getOdometr()));
-        txtCurrentEngine.setText(String.format("Двигатель: %s, объем %s л.", currentVehicle.getEngine(), currentVehicle.getPowerEngine()));
-        txtCurrentBody.setText(String.format("Кузов: %s", currentVehicle.getBody()));
-        txtCurrentTank.setText(String.format("Объем бака: %s л.", currentVehicle.getTankLiters()));
-        txtCurrentMass.setText(String.format("Масса: %s тонн", currentVehicle.getMass()));
+        if (currentVehicle != null) {
+            title = currentVehicle.getTitle();
+            fullname = String.format("%s %s %s %s", currentVehicle.getMark(), currentVehicle.getModel(), currentVehicle.getYear(), getResources().getString(R.string.year));
+            color = String.format("%s %s",getResources().getString(R.string.main_txt_color), currentVehicle.getColor());
+            odometr = String.format("%s %s %s",getResources().getString(R.string.main_txt_odometr), currentVehicle.getOdometr(), getResources().getString(R.string.km));
+            engine = String.format("%s %s, %s %s л.",getResources().getString(R.string.main_txt_engine), currentVehicle.getEngine(), getResources().getString(R.string.main_txt_engine_v), currentVehicle.getPowerEngine());
+            body = String.format("%s %s",getResources().getString(R.string.main_txt_body),  currentVehicle.getBody());
+            tank = String.format("%s %s л.",getResources().getString(R.string.main_txt_tank), currentVehicle.getTankLiters());
+            mass = String.format("%s %s тонн",getResources().getString(R.string.main_txt_mass), currentVehicle.getMass());
 
-        if (currentVehicle.getAvatar() != null)
-            imgCurrentVehicle.setImageBitmap(currentVehicle.getAvatar());
-        else
+            if (currentVehicle.getAvatar() != null)
+                imgCurrentVehicle.setImageBitmap(currentVehicle.getAvatar());
+            else
+                imgCurrentVehicle.setImageResource(R.drawable.car_avatar);
+        }
+        else {
+            title = "";
+            fullname = getResources().getString(R.string.main_txt_vehicle);
+            color = getResources().getString(R.string.main_txt_color);
+            odometr = getResources().getString(R.string.main_txt_odometr);
+            engine  = getResources().getString(R.string.main_txt_engine);
+            body = getResources().getString(R.string.main_txt_body);
+            tank = getResources().getString(R.string.main_txt_tank);
+            mass = getResources().getString(R.string.main_txt_mass);
+
             imgCurrentVehicle.setImageResource(R.drawable.car_avatar);
+        }
+
+        txtCurrentVehicle.setText(title);
+        txtCurrentMarkModelYear.setText(fullname);
+        txtCurrentColor.setText(color);
+        txtCurrentOdometr.setText(odometr);
+        txtCurrentEngine.setText(engine);
+        txtCurrentBody.setText(body);
+        txtCurrentTank.setText(tank);
+        txtCurrentMass.setText(mass);
     }
 
     public boolean onCreateOptionsMenu(Menu menu) {

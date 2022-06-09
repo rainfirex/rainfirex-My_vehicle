@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="osago_title">Страховой полис ОСАГО</string>
+    <string name="osago_vehicle">Ваш транспорт</string>
     <string name="osago_img_description">Изображение полиса</string>
     <string name="osago_txt_date_reg">Дата регистрации полиса</string>
     <string name="osago_txt_date_end">Дата окончание полиса</string>

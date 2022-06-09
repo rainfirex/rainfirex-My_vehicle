@@ -230,15 +230,16 @@ public class VehicleEditFragment extends Fragment {
                 txtInputTankLiters.requestFocus();
                 return;
             }
-            else {
-                tank = "0.0";
+            else if(tank.equalsIgnoreCase("")) {
+                tank = "0";
             }
+
             if (!mass.equalsIgnoreCase("") && !mass.matches("([0-9]{4})")){
                 Toast.makeText(view.getContext(), view.getResources().getText(R.string.edit_vehicle_err_mass), Toast.LENGTH_SHORT).show();
                 txtInputMass.requestFocus();
                 return;
             }
-            else {
+            else if (mass.equalsIgnoreCase("")){
                 mass = "0";
             }
 
@@ -246,7 +247,7 @@ public class VehicleEditFragment extends Fragment {
             try {
                 Vehicle vh = Vehicle.create(view.getContext(),
                         title, mark, model, Integer.parseInt(year), color, Integer.parseInt(odometr), selectImage,
-                        engine, Double.parseDouble(enginePower), body, Double.parseDouble(tank), Integer.parseInt(mass));
+                        engine, Double.parseDouble(enginePower), body, Integer.parseInt(tank), Integer.parseInt(mass));
 
                 Toast.makeText(view.getContext(), String.format("Транспорт добавлен: %s", vh.getTitle()), Toast.LENGTH_SHORT).show();
 
@@ -318,15 +319,16 @@ public class VehicleEditFragment extends Fragment {
                 txtInputTankLiters.requestFocus();
                 return;
             }
-            else {
-                tank = "0.0";
+            else if(tank.equalsIgnoreCase("")) {
+                tank = "0";
             }
+
             if (!mass.equalsIgnoreCase("") && !mass.matches("([0-9]{4})")){
                 Toast.makeText(view.getContext(), view.getResources().getText(R.string.edit_vehicle_err_mass), Toast.LENGTH_SHORT).show();
                 txtInputMass.requestFocus();
                 return;
             }
-            else {
+            else if (mass.equalsIgnoreCase("")){
                 mass = "0";
             }
 
@@ -341,7 +343,7 @@ public class VehicleEditFragment extends Fragment {
                 editVehicle.setEngine(engine);
                 editVehicle.setPowerEngine(Double.parseDouble(enginePower));
                 editVehicle.setBody(body);
-                editVehicle.setTankLiters(Double.parseDouble(tank));
+                editVehicle.setTankLiters(Integer.parseInt(tank));
                 editVehicle.setMass(Integer.parseInt(mass));
                 editVehicle.save(view.getContext());
 
@@ -373,8 +375,8 @@ public class VehicleEditFragment extends Fragment {
             txtInputEngine.setText(editVehicle.getEngine().trim());
             txtInputEnginePower.setText(String.valueOf(editVehicle.getPowerEngine()));
             txtInputBody.setText(editVehicle.getBody().trim());
-            txtInputTankLiters.setText(String.valueOf(editVehicle.getTankLiters()));
-            txtInputMass.setText(String.valueOf(editVehicle.getMass()));
+            txtInputTankLiters.setText(String.valueOf(editVehicle.getTankLiters() == 0 ? "" : editVehicle.getTankLiters()));
+            txtInputMass.setText(String.valueOf(editVehicle.getMass() == 0 ? "" : editVehicle.getMass()));
 
             int positionYear = adapterYears.getPosition(String.valueOf(editVehicle.getYear()));
             int positionMark = adapterMark.getPosition(editVehicle.getMark());

@@ -6,7 +6,9 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
 
+import com.sakhhome.vehicle.models.OilChange;
 import com.sakhhome.vehicle.models.Osago;
+import com.sakhhome.vehicle.models.ReFuel;
 import com.sakhhome.vehicle.models.Vehicle;
 import com.sakhhome.vehicle.utils.DbBitmapUtility;
 
@@ -41,7 +43,7 @@ public abstract class TableVehicle {
     public static String createTableString(){
         return String.format("create table %s (id integer primary key autoincrement, %s TEXT, %s TEXT, %s TEXT, %s INTEGER," +
                         " %s TEXT NULL, %s INTEGER DEFAULT 0, %s BLOB NULL," +
-                        " %s TEXT NULL, %s REAL NULL, %s TEXT NULL, %s REAL DEFAULT 0, %s INTEGER DEFAULT 0);",
+                        " %s TEXT NULL, %s REAL NULL, %s TEXT NULL, %s INTEGER DEFAULT 0, %s INTEGER DEFAULT 0);",
                 TableVehicle.TABLE, TableVehicle.KEY_TITLE, TableVehicle.KEY_MARK, TableVehicle.KEY_MODEL, TableVehicle.KEY_YEAR,
                 TableVehicle.KEY_COLOR, TableVehicle.KEY_ODOMETR, TableVehicle.KEY_AVATAR,
                 TableVehicle.KEY_ENGINE, TableVehicle.KEY_POWER_ENGINE, TableVehicle.KEY_BODY, TableVehicle.KEY_TANK_LITERS, TableVehicle.KEY_MASS);
@@ -88,7 +90,7 @@ public abstract class TableVehicle {
                 String engine   = c.getString(engineIndex);
                 Double enginePower = c.getDouble(enginePowerIndex);
                 String body     = c.getString(bodyIndex);
-                Double tank = c.getDouble(tankIndex);
+                int tank = c.getInt(tankIndex);
                 int mass = c.getInt(massIndex);
 
                 Vehicle vehicle = new Vehicle(id, title, mark, model, year, color, odometr, avatar, engine, enginePower, body, tank, mass);
@@ -139,7 +141,7 @@ public abstract class TableVehicle {
             String engine   = c.getString(engineIndex);
             Double enginePower = c.getDouble(enginePowerIndex);
             String body     = c.getString(bodyIndex);
-            Double tank = c.getDouble(tankIndex);
+            int tank = c.getInt(tankIndex);
             int mass = c.getInt(massIndex);
 
             db.close();
@@ -168,7 +170,7 @@ public abstract class TableVehicle {
      * @return
      */
     public static Vehicle create(Context context, String title, String mark, String model, int year, String color, int odometr, Bitmap avatar,
-                                 String engine, Double enginePower, String body, Double tank, int mass){
+                                 String engine, Double enginePower, String body, int tank, int mass){
         VehicleDB vehicleDB = new VehicleDB(context);
         SQLiteDatabase db = vehicleDB.getWritableDatabase();
 
@@ -209,7 +211,24 @@ public abstract class TableVehicle {
         VehicleDB vehicleDB = new VehicleDB(context);
         SQLiteDatabase db = vehicleDB.getWritableDatabase();
 
-        int count = db.delete(TABLE, KEY_ID + " = ?", new String[]{String.valueOf(id)});
+        String vehicleId = String.valueOf(id);
+
+        int count = 0;
+
+        db.beginTransaction();
+        try {
+            count = db.delete(TABLE, KEY_ID + " = ?", new String[]{vehicleId});
+
+            count += db.delete(TableOsago.TABLE, TableOsago.KEY_VEHICLE_ID + " = ?", new String[]{vehicleId});
+
+            count += db.delete(OilChange.TABLE, OilChange.KEY_VEHICLE_ID+ " = ?", new String[]{vehicleId});
+
+            count += db.delete(ReFuel.TABLE, ReFuel.KEY_VEHICLE_ID + " = ?", new String[]{vehicleId});
+            db.setTransactionSuccessful();
+        }
+        finally {
+            db.endTransaction();
+        }
 
         db.close();
 

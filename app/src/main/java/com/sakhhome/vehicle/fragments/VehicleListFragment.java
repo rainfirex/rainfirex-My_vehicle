@@ -116,11 +116,17 @@ public class VehicleListFragment extends ListFragment {
      * Удалить транспорт
      */
     private void contextMenuDelete(){
-        int count = Vehicle.delete(getContext(), selectVehicle.getId());
-        if (count > 0) {
-            listVehicle.remove(selectVehicle);
-            selectVehicle = null;
-            adapterVehicle.notifyDataSetChanged();
+        try {
+            int count = Vehicle.delete(getContext(), selectVehicle.getId());
+            if (count > 0) {
+                listVehicle.remove(selectVehicle);
+                selectVehicle = null;
+                adapterVehicle.notifyDataSetChanged();
+            }
         }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+
     }
 }

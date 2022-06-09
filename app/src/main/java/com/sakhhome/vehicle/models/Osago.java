@@ -4,6 +4,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
+import android.util.Log;
 
 import com.sakhhome.vehicle.database.TableOsago;
 import com.sakhhome.vehicle.database.VehicleDB;
@@ -13,8 +14,8 @@ import java.io.Serializable;
 
 public class Osago extends TableOsago implements Serializable {
     private int id;
-    private String date_reg;
-    private String date_end;
+    private String dateReg;
+    private String dateEnd;
     private Bitmap osago;
 
     public int getId() {
@@ -25,20 +26,20 @@ public class Osago extends TableOsago implements Serializable {
         this.id = id;
     }
 
-    public String getDate_reg() {
-        return date_reg;
+    public String getDateReg() {
+        return dateReg;
     }
 
-    public void setDate_reg(String date_reg) {
-        this.date_reg = date_reg;
+    public void setDateReg(String dateReg) {
+        this.dateReg = dateReg;
     }
 
-    public String getDate_end() {
-        return date_end;
+    public String getDateEnd() {
+        return dateEnd;
     }
 
-    public void setDate_end(String date_end) {
-        this.date_end = date_end;
+    public void setDateEnd(String dateEnd) {
+        this.dateEnd = dateEnd;
     }
 
     public Bitmap getOsago() {
@@ -49,10 +50,10 @@ public class Osago extends TableOsago implements Serializable {
         this.osago = osago;
     }
 
-    public Osago(int id, String date_reg, String date_end, Bitmap osago) {
+    public Osago(int id, String dateReg, String dateEnd, Bitmap osago) {
         this.id = id;
-        this.date_reg = date_reg;
-        this.date_end = date_end;
+        this.dateReg = dateReg;
+        this.dateEnd = dateEnd;
         this.osago = osago;
     }
 
@@ -68,10 +69,14 @@ public class Osago extends TableOsago implements Serializable {
         byte[] osagoByte = (osago != null) ? DbBitmapUtility.getBytes(osago) : null;
 
         ContentValues cv = new ContentValues();
-        cv.put(KEY_DATE_REG,    this.date_reg);
-        cv.put(KEY_DATE_END,   this.date_end);
-        cv.put(KEY_OSAGO_IMG,  osagoByte);
+        cv.put(KEY_DATE_REG,  this.dateReg);
+        cv.put(KEY_DATE_END,  this.dateEnd);
+        cv.put(KEY_OSAGO_IMG, osagoByte);
 
-        return db.update(TABLE, cv, "id = ?", new String[]{ String.valueOf(id) });
+        int count = db.update(TABLE, cv, "id = ?", new String[]{ String.valueOf(id) });
+
+        db.close();
+
+        return count;
     }
 }

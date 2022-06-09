@@ -6,6 +6,7 @@
     <string name="main_txt_color">Цвет:</string>
     <string name="main_txt_odometr">Пробег:</string>
     <string name="main_txt_engine">Двигатель:</string>
+    <string name="main_txt_engine_v">объем:</string>
     <string name="main_txt_mass">Масса:</string>
     <string name="main_txt_tank">Бак:</string>
     <string name="main_txt_body">Кузов:</string>

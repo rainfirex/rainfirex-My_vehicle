@@ -8,9 +8,13 @@
         <entry key="..\:/Android/Projects/vehicle/rainfirex-My_vehicle/app/src/main/res/layout/activity_main_app.xml" value="0.264" />
         <entry key="..\:/Android/Projects/vehicle/rainfirex-My_vehicle/app/src/main/res/layout/activity_oil_change.xml" value="0.259375" />
         <entry key="..\:/Android/Projects/vehicle/rainfirex-My_vehicle/app/src/main/res/layout/activity_osago.xml" value="0.21354166666666666" />
+        <entry key="..\:/Android/Projects/vehicle/rainfirex-My_vehicle/app/src/main/res/layout/activity_osago1.xml" value="0.2328125" />
+        <entry key="..\:/Android/Projects/vehicle/rainfirex-My_vehicle/app/src/main/res/layout/activity_refueling.xml" value="0.23125" />
         <entry key="..\:/Android/Projects/vehicle/rainfirex-My_vehicle/app/src/main/res/layout/activity_select_vehicle.xml" value="0.2625" />
         <entry key="..\:/Android/Projects/vehicle/rainfirex-My_vehicle/app/src/main/res/layout/fragment_fuel_add.xml" value="0.2625" />
         <entry key="..\:/Android/Projects/vehicle/rainfirex-My_vehicle/app/src/main/res/layout/fragment_oil_add.xml" value="0.259375" />
+        <entry key="..\:/Android/Projects/vehicle/rainfirex-My_vehicle/app/src/main/res/layout/fragment_osago.xml" value="0.2328125" />
+        <entry key="..\:/Android/Projects/vehicle/rainfirex-My_vehicle/app/src/main/res/layout/fragment_osago_viewer.xml" value="0.21822916666666667" />
         <entry key="..\:/Android/Projects/vehicle/rainfirex-My_vehicle/app/src/main/res/layout/fragment_vehicle_add.xml" value="0.2" />
         <entry key="..\:/Android/Projects/vehicle/rainfirex-My_vehicle/app/src/main/res/layout/view_refuel_list_item.xml" value="0.13854166666666667" />
         <entry key="..\:/Android/Projects/vehicle/rainfirex-My_vehicle/app/src/main/res/menu/menu_context_select_vehicle.xml" value="0.2625" />

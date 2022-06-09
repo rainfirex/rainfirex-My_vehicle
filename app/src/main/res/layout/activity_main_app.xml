@@ -179,4 +179,25 @@
         </FrameLayout>
     </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:visibility="gone"
+        android:orientation="horizontal">
+        <Button
+            android:id="@+id/btnConn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Conn test"/>
+        <Button
+            android:id="@+id/btnDisConn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="DIS test"/>
+    </LinearLayout>
+
+
 </LinearLayout>

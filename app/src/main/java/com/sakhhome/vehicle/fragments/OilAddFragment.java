@@ -222,14 +222,14 @@ public class OilAddFragment extends Fragment {
             }
             Double sum = sumOil + airFilterPrice + oilFilterPrice + oilWorkPrice;
 
-            currVehicle.setOdometr(odometr);
-            currVehicle.save(getContext());
 
-            OilChange.create(getContext(), date, odometr, oilName, oilLiter, oilPrice, address,
-                    station, airFilterName, airFilterPrice, currVehicle.getId(), oilFilterName, oilFilterPrice, oilWorkPrice);
+            if(OilChange.create(getContext(), date, odometr, oilName, oilLiter, oilPrice, address,
+                    station, airFilterName, airFilterPrice, currVehicle.getId(), oilFilterName, oilFilterPrice, oilWorkPrice) != null){
+                currVehicle.setOdometr(odometr);
+                currVehicle.save(getContext());
+            }
 
             Toast.makeText(getActivity(), "Сумма за масло: " + sumOil + ", Сумма затраты: "+ sum, Toast.LENGTH_LONG).show();
-
 
             getParentFragmentManager()
                     .beginTransaction()

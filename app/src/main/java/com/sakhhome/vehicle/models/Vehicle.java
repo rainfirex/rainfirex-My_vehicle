@@ -12,6 +12,7 @@ import com.sakhhome.vehicle.database.VehicleDB;
 import com.sakhhome.vehicle.utils.DbBitmapUtility;
 
 import java.io.Serializable;
+import java.lang.reflect.Array;
 
 public class Vehicle extends TableVehicle implements Serializable {
 
@@ -26,8 +27,9 @@ public class Vehicle extends TableVehicle implements Serializable {
     private String engine;
     private double powerEngine;
     private String body;
-    private double tankLiters;
+    private int tankLiters;
     private int mass;
+    private Osago osago;
     private int oilEngineLiters;
 
     public String getEngine() {
@@ -54,11 +56,11 @@ public class Vehicle extends TableVehicle implements Serializable {
         this.body = body;
     }
 
-    public double getTankLiters() {
+    public int getTankLiters() {
         return tankLiters;
     }
 
-    public void setTankLiters(double tankLiters) {
+    public void setTankLiters(int tankLiters) {
         this.tankLiters = tankLiters;
     }
 
@@ -134,8 +136,16 @@ public class Vehicle extends TableVehicle implements Serializable {
         this.avatar = avatar;
     }
 
+    public Osago getOsago() {
+        return osago;
+    }
+
+    public void setOsago(Osago osago) {
+        this.osago = osago;
+    }
+
     public Vehicle(int id, String title, String mark, String model, int year, String color, int odometr, Bitmap avatar,
-                   String engine, double powerEngine, String body, double tankLiters, int mass) {
+                   String engine, double powerEngine, String body, int tankLiters, int mass) {
         this.id      = id;
         this.title   = title;
         this.mark    = mark;
@@ -179,7 +189,7 @@ public class Vehicle extends TableVehicle implements Serializable {
         return db.update(TABLE, cv, "id = ?", new String[]{ String.valueOf(id) });
     }
 
-    public Osago getOsago(Context context){
+    public Osago loadOsago(Context context){
         VehicleDB vehicleDB = new VehicleDB(context);
         SQLiteDatabase db = vehicleDB.getWritableDatabase();
 
@@ -188,10 +198,12 @@ public class Vehicle extends TableVehicle implements Serializable {
         Cursor c = db.query(TableOsago.TABLE, new String[]{"*"}, TableOsago.KEY_VEHICLE_ID + " = ?", new String[]{String.valueOf(id)}, null,null, null);
 
         if(c.moveToFirst()){
+            int idIndex      = c.getColumnIndex(TableOsago.KEY_ID);
             int dateRegIndex = c.getColumnIndex(TableOsago.KEY_DATE_REG);
             int dateEndIndex = c.getColumnIndex(TableOsago.KEY_DATE_END);
             int osagoIndex   = c.getColumnIndex(TableOsago.KEY_OSAGO_IMG);
 
+            int osagoId    = c.getInt(idIndex);
             String dateReg = c.getString(dateRegIndex);
             String dateEnd = c.getString(dateEndIndex);
             byte[] osagoByte   = c.getBlob(osagoIndex);
@@ -200,9 +212,19 @@ public class Vehicle extends TableVehicle implements Serializable {
 
             db.close();
 
-            osago = new Osago(id, dateReg, dateEnd, osagoImg);
+            osago = new Osago(osagoId, dateReg, dateEnd, osagoImg);
         }
 
         return osago;
+    }
+
+    public void with(Context context, String[] models){
+        for (String item: models) {
+            switch (item){
+                case TableOsago.TABLE:
+                    osago = loadOsago(context);
+                    break;
+            }
+        }
     }
 }

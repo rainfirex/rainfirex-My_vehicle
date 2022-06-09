@@ -291,7 +291,10 @@ public class FuelAddFragment extends Fragment {
                 return;
             }
 
-            ReFuel.create(getContext(), date, odometr, spinnerType.getSelectedItem().toString(), oilLiter, fuelPrice, sum, address, station, note, currVehicle.getId());
+            if(ReFuel.create(getContext(), date, odometr, spinnerType.getSelectedItem().toString(), oilLiter, fuelPrice, sum, address, station, note, currVehicle.getId()) != null){
+                currVehicle.setOdometr(odometr);
+                currVehicle.save(getContext());
+            }
 
             Toast.makeText(getActivity(), "Сумма: " + sum, Toast.LENGTH_LONG).show();
 
